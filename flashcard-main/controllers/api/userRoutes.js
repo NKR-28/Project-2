@@ -1,3 +1,5 @@
+// determine if user will have a username or email i.e. how will the user be identified?
+
 const router = require('express').Router();
 const { User } = require('../../models');
 
