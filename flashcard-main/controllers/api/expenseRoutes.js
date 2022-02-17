@@ -4,17 +4,18 @@ const router = require('express').Router();
 const { Expense } = require('../../models');
 
 // our 'skeleton' for the get route needs updating
-router.get('/', async (req, res) => {
+router.post('/'), async (req, res) => {
   try {
-      res.status(200).json(userData);
+    const expenseProject = await expenseProject.create ({
+      ...req.body,
+      user_id: req.session.user_id,
     });
+
+    res.status(200).json(expenseProject);
   } catch (err) {
-    res.status(400).json(err);
+    res.status (400).json(err);
   }
 });
-
-router.get('/expense', async (req, res) => {
-  try {
 
       // determine how to find our queries i.e. find all, this would be finding expenses by user primary id key.
 
@@ -31,9 +32,6 @@ router.get('/expense', async (req, res) => {
     res.status(400).json(err);
   }
 });
-
-router.get('/expense/:id', async (req, res) => {
-    try {
   
         // determine how to find our queries i.e. find all, this would be finding expenses by user primary id key.
   
