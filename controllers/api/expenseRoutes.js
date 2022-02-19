@@ -17,8 +17,8 @@ router.get('/expense', async (req, res) => {
   try {
 
       // determine how to find our queries i.e. find all, this would be finding expenses by user primary id key.
-
-    const expenseData = await Expense.findAll({ where: { email: req.body.email } });
+      // User findall method select user_id from expense table
+    const expenseData = await Expense.findAll({ where: { user_id: req.session.user_id } });
 
     if (!expenseData) {
       res
@@ -37,7 +37,7 @@ router.get('/expense/:id', async (req, res) => {
   
         // determine how to find our queries i.e. find all, this would be finding expenses by user primary id key.
   
-      const expenseData = await Expense.findOne({ where: { email: req.body.email } });
+      const expenseData = await Expense.findOne({ where:{} } });
   
       if (!expenseData) {
         res
