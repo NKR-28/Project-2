@@ -53,6 +53,21 @@ router.get('/expense/:id', async (req, res) => {
 
   // needs to be completed
 router.post('/expense', (req, res) => {
+
+  Expense.create({
+    Category_id: req.body//.whatever we end up calling the element that contains this0,
+    ,
+    dollerAmount: req.body//.whatever this element is called
+    ,
+    user_id: req.session.user_id
+  })
+    .then((newExpense) => {
+      // Send the newly created row as a JSON object
+      res.json(newExpense
+    })
+    .catch((err) => {
+      res.json(err);
+    });
 });
 
 module.exports = router;
