@@ -4,28 +4,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fund My Project!</title>
+  <title>💸Budget Buddy💸</title>
   <link rel="stylesheet" href="/css/jass.css">
   <link rel="stylesheet" href="/css/style.css">
-  {{!-- insert style sheet link for bulma --}}
+
+  {{!-- bulma link --}}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+
+  {{!-- google fonts--}}
+  <link rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Font+Name">
 </head>
 
 <body>
   <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
+   <header class="content has-text-centered">
       <h1>
         <span role="img" aria-label="money">💸</span>
-        <a href="/">Fund My Project!</a>
+        <a href="/">Budget Buddy💸</a>
       </h1>
       <nav>
+        
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
         <a href="/profile">profile</a> |
         <button class="no-button" id="logout">logout</button>
         {{else}}
-        <a href="/login">login</a>
+        <a href="/login">Login</a>
         {{/if}}
       </nav>
+
     </header>
     <main class="container container-fluid mt-5">
       <!-- Render the sub layout -->
@@ -41,5 +49,17 @@
   <script src="/js/logout.js"></script>
   {{/if}}
 </body>
+
+<footer class=" footer">
+  <div class=" content has-text-centered">
+
+    <p>
+      Powered by Group 6!
+    </p>
+
+  </div>
+
+</footer>
+
 
 </html>

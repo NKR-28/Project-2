@@ -1,4 +1,15 @@
 <!-- Loop over each object in the projects array -->
+
+{{!-- add expenses form here  --}}
+<div>
+<div class="select is-primary">
+  <select>
+    <option>Select dropdown</option>
+    <option>Expenses</option>
+  </select>
+</div>
+</div>
+
 {{#each projects as |project| }}
 <div class="row mb-4 project">
   <div class="col-md-5">
@@ -20,5 +31,9 @@
       {{project.description}}
     </p>
   </div>
+  
+
 </div>
 {{/each}}
+{{!-- test --}}
+<div>Stuff</div>
