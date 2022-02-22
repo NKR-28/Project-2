@@ -2,21 +2,13 @@
 
 {{!-- add expenses form here  --}}
 <div>
-   <div class="content has-text-centered">
-        <label for="category">Category:</label>
-        <input class="input is-rounded input is-primary" type="text" id="category-expense" />
-      </div>
-      <div class="content has-text-centered">
-        <label for="dollarAmount">Dollar Amount:</label>
-        <input class="input is-rounded input is-primary" type="text" id="dollarAmount-expense" />
-      </div>
-      <div class="content has-text-centered">
-        <label for="dollarAmount">budget_id:</label>
-         {{!-- {{
-           use a foreach to loop over the user's budgets and populate drop down options. 
-          }} --}}
-        <input class="input is-rounded input is-primary" type="text" id="dollarAmount-expense" />
-      </div>
+
+<div class="select is-primary">
+  <select>
+    <option>Select dropdown</option>
+    <option>Expenses</option>
+  </select>
+</div>
 </div>
 
 {{#each projects as |project| }}
