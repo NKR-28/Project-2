@@ -11,20 +11,17 @@ Expense.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    category_id: {
-      type: DataTypes.INTEGER,
+    budget_id: {
+      type: DataTypes.STRING,
       allowNull: false,
     },
     dollerAmount: {
         type: DataTypes.INTEGER,
         allowNull: false,
-    },
-    user_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
+    
+  //  date? maybe we want this 
   },
-  {
+  
    
   
     sequelize,
