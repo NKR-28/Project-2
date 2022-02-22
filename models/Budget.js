@@ -3,7 +3,7 @@ const sequelize = require('../config/connection');
 
 class Budget extends Model {}
 
-Category.init(
+Budget.init(
   {
     id: {
       type: DataTypes.INTEGER,
