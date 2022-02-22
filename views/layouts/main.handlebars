@@ -76,9 +76,20 @@
 
           </a>
 
-          <a class="button is-light">
+          {{!-- <a class="button is-light">
             Log in
-          </a>
+          </a> --}}
+
+          <nav>
+        
+        <!-- Conditionally render login or logout links -->
+        {{#if logged_in}}
+        <a href="/profile">profile</a> |
+        <button class="button is-light" id="logout">logout</button>
+        {{else}}
+        <a class="button is-light" href="/login">Login</a>
+        {{/if}}
+      </nav>
 
         </div>
       </div>
@@ -105,7 +116,7 @@
         <a href="/profile">profile</a> |
         <button class="no-button" id="logout">logout</button>
         {{else}}
-        <a href="/login">Login</a>
+        <a href="/login"></a>
         {{/if}}
       </nav>
 
