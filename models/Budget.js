@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Category extends Model {}
+class Budget extends Model {}
 
-Category.init(
+Budget.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,11 +11,19 @@ Category.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    category_id: {
+    budget_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    budget_amount:{
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    category_type: {
+    budget_spent:{
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
@@ -25,8 +33,8 @@ Category.init(
   timestamps: false,
   freezeTableName: true,
   underscored: true,
-  modelName: 'expense',
+  modelName: 'Budget',
   }
 );
 
-module.exports = Category;
+module.exports = Budget;

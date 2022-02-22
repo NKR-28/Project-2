@@ -16,6 +16,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+//rename path or doublecheck
 router.get('/profile', withAuth, async (req, res) => {
   try {
     
@@ -34,6 +35,7 @@ router.get('/profile', withAuth, async (req, res) => {
   }
 });
 
+//double check the sytax, this is out redirect id not loggin in statement
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
     res.redirect('/profile');
