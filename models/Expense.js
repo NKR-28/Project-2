@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Expense extends Model {}
+class Expense extends Model { }
 
 Expense.init(
   {
@@ -16,14 +16,15 @@ Expense.init(
       allowNull: false,
     },
     dollerAmount: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-    
-  //  date? maybe we want this 
+      type: DataTypes.INTEGER,
+      allowNull: false,
+
+      //  date? maybe we want this 
+    },
+
   },
-  
-   
-  
+  {
+
     sequelize,
     timestamps: false,
     freezeTableName: true,
