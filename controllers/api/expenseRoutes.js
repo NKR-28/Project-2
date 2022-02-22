@@ -7,17 +7,15 @@ const { Expense } = require('../../models');
 router.get('/', async (req, res) => {
   try {
       res.status(200).json(userData);
-    });
-  } catch (err) {
+    }
+   catch (err) {
     res.status(400).json(err);
   }
 });
 
 router.get('/expense', async (req, res) => {
   try {
-
-      // determine how to find our queries i.e. find all, this would be finding expenses by user primary id key.
-      // User findall method select user_id from expense table
+    
     const expenseData = await Expense.findAll({ where: { user_id: req.session.user_id } });
 
     if (!expenseData) {
@@ -32,38 +30,38 @@ router.get('/expense', async (req, res) => {
   }
 });
 
-router.get('/expense/:id', async (req, res) => {
-    try {
+// router.get('/expense/:id', async (req, res) => {
+//     try {
   
-        // determine how to find our queries i.e. find all, this would be finding expenses by user primary id key.
+//         // determine how to find our queries i.e. find all, this would be finding expenses by user primary id key.
   
-      const expenseData = await Expense.findOne({ where:{} } });
+//       const expenseData = await Expense.findOne({ where:{} } );
   
-      if (!expenseData) {
-        res
-          .status(400)
-          .json({ message: 'No expenses found' });
-        return;
-      }
-  
-    } catch (err) {
-      res.status(400).json(err);
-    }
-  });
+//       if (!expenseData) {
+//         res
+//           .status(404)
+//           .json({ message: 'No expenses found' });
+//         return;
+//       }
+//     }
+//      catch (err) {
+//       res.status(400).json(err);
+//     }
+//   });
 
-  // needs to be completed
-router.post('/expense', (req, res) => {
+router.post('/addexpense', (req, res) => {
 
   Expense.create({
-    Category_id: req.body//.whatever we end up calling the element that contains this0,
+    Category_id: req.body.category_id
     ,
-    dollerAmount: req.body//.whatever this element is called
+    dollerAmount: req.body.dollarAmount
+    ,
+    budget_id: req.body.budget_id
     ,
     user_id: req.session.user_id
   })
     .then((newExpense) => {
-      // Send the newly created row as a JSON object
-      res.json(newExpense
+      res.json(newExpense)
     })
     .catch((err) => {
       res.json(err);
