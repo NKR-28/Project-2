@@ -8,7 +8,7 @@
   <div class="col-md-6">
     <h3>Create a New Project:</h3>
 
-    <form class="form new-project-form">
+    {{!-- <form class="form new-project-form">
       <div class="form-group">
         <label for="project-name">project name:</label>
         <input class="form-input" type="text" id="project-name" name="project-name" />
@@ -24,23 +24,32 @@
       <div class="form-group">
         <button type="submit" class="btn btn-primary">Create</button>
       </div>
-    </form>
+    </form> --}}
   </div>
-
-  {{#if projects.length}}
+<div class="buttons">
+  <button class="button is-primary" id = "Entertainment">Entertainment</button>
+  <button class="button is-primary" id = "Grocery">Grocery</button>
+  <button class="button is-primary" id = "Travel">Travel</button>
+  <button class="button is-primary" id = "Restaurant ">Restaurant</button>
+  <button class="button is-primary" id = "Technology">Technology</button>
+</div>
+  {{#if items.length}}
   <div class="col-md-6 project-list">
-    <h3>Current Projects:</h3>
-
-    {{#each projects as |project|}}
-    <div class="row mb-2">
+    <h3>Current items:</h3>
+  <select name="" id="">
+    {{#each items as |item|}}
+    <option>{{item}}</option>
+    {{!-- <div class="row mb-2">
       <div class="col-md-8">
         <h4><a href="/project/{{project.id}}">{{project.name}}</a></h4>
       </div>
       <div class="col-md-4">
         <button class="btn btn-sm btn-danger" data-id="{{project.id}}">DELETE</button>
       </div>
-    </div>
+    </div> --}}
     {{/each}}
+    </select>
+
   </div>
   {{/if}}
 </div>

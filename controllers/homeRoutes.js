@@ -25,9 +25,12 @@ router.get('/profile', withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
-
+    //expenses.findAll to update items in the database
+    
+    const items = ["apples", "movie", "uber", "food"]
     res.render('profile', {
       ...user,
+      items,
       logged_in: true
     });
   } catch (err) {
