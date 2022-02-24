@@ -1,57 +1,35 @@
-<div class="row">
-  <div class="col-auto">
-    <h2>Welcome, {{name}}!</h2>
-  </div>
-</div>
-
 <div class="row mt-4">
   <div class="col-md-6">
-    <h3>Create a New Project:</h3>
+    <h3>Create a New Budget, Buddy</h3>
 
-    {{!-- <form class="form new-project-form">
+    <form class="form new-budget-form">
       <div class="form-group">
-        <label for="project-name">project name:</label>
-        <input class="form-input" type="text" id="project-name" name="project-name" />
+        <label for="Budget-name">Budget name:</label>
+        <input class="form-input" type="text" id="budget-name" name="budget-name" />
       </div>
       <div class="form-group">
-        <label for="project-funding">needed funding ($):</label>
-        <input class="form-input" type="number" id="project-funding" name="project-funding" />
+        <label for="budget-amount">Budget Amount ($):</label>
+        <input class="form-input" type="number" id="budget-amount" name="budget-form" />
       </div>
-      <div class="form-group">
-        <label for="project-desc">description:</label>
-        <textarea class="form-input" id="project-desc" name="project-desc"></textarea>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
-      </div>
-    </form> --}}
+    </form>
   </div>
-<div class="buttons">
-  <button class="button is-primary" id = "Entertainment">Entertainment</button>
-  <button class="button is-primary" id = "Grocery">Grocery</button>
-  <button class="button is-primary" id = "Travel">Travel</button>
-  <button class="button is-primary" id = "Restaurant ">Restaurant</button>
-  <button class="button is-primary" id = "Technology">Technology</button>
-</div>
-  {{#if items.length}}
-  <div class="col-md-6 project-list">
-    <h3>Current items:</h3>
-  <select name="" id="">
-    {{#each items as |item|}}
-    <option>{{item}}</option>
-    {{!-- <div class="row mb-2">
-      <div class="col-md-8">
-        <h4><a href="/project/{{project.id}}">{{project.name}}</a></h4>
-      </div>
-      <div class="col-md-4">
-        <button class="btn btn-sm btn-danger" data-id="{{project.id}}">DELETE</button>
-      </div>
-    </div> --}}
-    {{/each}}
-    </select>
+  {{#if budgets.length}}
+  <div class="col-md-6 budget-list">
+    <h3>Current budgets:</h3>
+      {{#each budgets as |budget|}}
+  </div>
+  <progress class="progress is-link" value="80" max="{{budget.budget_amount}}"></progress>
+
+  <div class="content has-text-centered">
+    Logic - budget amount - you have this much $ left over
+
+    {{!-- conditional logic for overage rather than a negative amount left --}}
 
   </div>
-  {{/if}}
+  {{/each}}
+
+</div>
+{{/if}}
 </div>
 
-<script src="./js/profile.js"></script>
+<script src="./js/budget.js"></script>
