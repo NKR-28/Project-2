@@ -5,26 +5,18 @@ class Budget extends Model {}
 
 Budget.init(
   {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    budget_name: {
+    // id: {
+    //   type: DataTypes.INTEGER,
+      // allowNull: false,
+      // primaryKey: true,
+      // autoIncrement: true,
+    // },
+   name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    budget_amount:{
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    budget_spent:{
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    user_id: {
-      type: DataTypes.INTEGER,
+    amount:{
+      type: DataTypes.DECIMAL,
       allowNull: false,
     },
   },
@@ -33,7 +25,7 @@ Budget.init(
   timestamps: false,
   freezeTableName: true,
   underscored: true,
-  modelName: 'Budget',
+  modelName: 'budget',
   }
 );
 
