@@ -4,6 +4,4 @@ const Budget = require('./Budget');
 
 
 
-module.exports = { User };
-module.exports = { Expense};
-module.exports = { Budget };
+module.exports = { User, Expense, Budget };
