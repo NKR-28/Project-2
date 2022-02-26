@@ -28,7 +28,7 @@ router.get('/budget', withAuth, async (req, res) => {
     //expenses.findAll to update items in the database
     
     const items = ["apples", "movie", "uber", "food"]
-    res.render('profile', {
+    res.render('budget', {
       ...user,
       items,
       logged_in: true
@@ -37,11 +37,15 @@ router.get('/budget', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+router.get('/budget/:id',(req, res) =>{
+  req.params.id
+
+})
 
 //double check the sytax, this is out redirect id not loggin in statement
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
-    res.redirect('/profile');
+    res.redirect('/budget');
     return;
   }
 
