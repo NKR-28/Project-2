@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
 });
 
 //rename path or doublecheck
-router.get('/profile', withAuth, async (req, res) => {
+router.get('/budget', withAuth, async (req, res) => {
   try {
     
     const userData = await User.findByPk(req.session.user_id, {
