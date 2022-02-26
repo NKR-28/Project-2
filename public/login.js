@@ -15,7 +15,7 @@ console.log("login")
     const results = await response.json()
     console.log(results)
     if (response.ok) {
-      document.location.replace('/');
+      document.location.replace('/budget');
     } else {
       alert('Failed to log in');
     }
@@ -38,7 +38,7 @@ console.log(name,email,password)
  const results = await response.json()
  console.log(results)
     if (response.ok) {
-      document.location.replace('/profile');
+      document.location.replace('/budget');
     } else {
       alert(response.statusText);
     }

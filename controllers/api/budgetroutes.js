@@ -29,12 +29,8 @@ router.get('/budget', async (req, res) => {
 router.post('/addbudget', (req, res) => {
 
     Budget.create({
-        budget_name: req.body.budget_name
-        ,
-        budgetAmount: req.body.budgetAmount
-        ,
-        budget_spent: 0
-        ,
+       ...req.body,
+        
         user_id: req.session.user_id
     })
         .then((newBudget) => {

@@ -4,14 +4,14 @@ const session = require("express-session");
 const budgetFormHandler = async (event) => {
     event.preventDefault();
 
-    const budget_name = document.querySelector('#budget_name').value;
-    const budget_amount = document.querySelector('#budget_amount').value;
-    const user_id = session.user_id;
+    const name = document.querySelector('#budget-name').value;
+    const amount = document.querySelector('#budget-amount').value;
+    
 
-    if (budget_name && budget_amount) {
+    if (name && amount) {
         const response = await fetch('/api/addbudget', {
             method: 'POST',
-            body: JSON.stringify({ budget_name, budget_amount, user_id }),
+            body: JSON.stringify({ name, amount}),
             headers: { 'Content-Type': 'application/json' },
         });
 
@@ -24,5 +24,5 @@ const budgetFormHandler = async (event) => {
 };
 
 document
-    .querySelector('.budget-form')
+    .querySelector('.new-budget-form')
     .addEventListener('submit', budgetFormHandler);
