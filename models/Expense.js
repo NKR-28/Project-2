@@ -5,30 +5,23 @@ class Expense extends Model { }
 
 Expense.init(
   {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    budget_id: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+    // id: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   // primaryKey: true,
+    //   // autoIncrement: true,
+    // },
     dollerAmount: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-
-      //  date? maybe we want this 
+      type: DataTypes.DECIMAL,
+      
     },
-
   },
   {
 
     sequelize,
     timestamps: false,
     freezeTableName: true,
-    underscored: true,
+    underscored: false,
     modelName: 'expense',
   }
 );
