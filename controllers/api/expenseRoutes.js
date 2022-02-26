@@ -3,15 +3,6 @@
 const router = require('express').Router();
 const { Expense } = require('../../models');
 
-// our 'skeleton' for the get route needs updating
-router.get('/', async (req, res) => {
-  try {
-      res.status(200).json(userData);
-    }
-   catch (err) {
-    res.status(400).json(err);
-  }
-});
 
 router.get('/expense', async (req, res) => {
   try {
@@ -49,17 +40,12 @@ router.get('/expense', async (req, res) => {
 //     }
 //   });
 
-router.post('/addexpense', (req, res) => {
+router.post('/addexpense/:budgetid', (req, res) => {
 
   Expense.create({
-    Category_id: req.body.category_id
-    ,
-    dollerAmount: req.body.dollarAmount
-    ,
-    budget_id: req.body.budget_id
-    ,
-    user_id: req.session.user_id
-  })
+  ...req.body
+  budget_id: req.params.budgetid
+})
     .then((newExpense) => {
       res.json(newExpense)
     })
