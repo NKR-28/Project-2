@@ -1,25 +1,24 @@
 //instructor demo. Modify for our project
 
-const session = require("express-session");
 
 const expenseFormHandler = async (event) => {
     event.preventDefault();
   
-    const category_id = document.querySelector('#category-expense').value;
-    const dollarAmount = document.querySelector('#dollarAmount-expense').value;
-    const user_id = session.user_id;
+    
+    const dollarAmount = document.querySelector('#expense-amount').value;
 
-    if (category_id && dollarAmount) {
-      const response = await fetch('/api/addexpense', {
+
+    if (dollarAmount) {
+      const response = await fetch('/api/addexpense:budgetid', {
         method: 'POST',
-        body: JSON.stringify({ category_id, dollarAmount, user_id }),
+        body: JSON.stringify({ dollarAmount, budget_id}),
         headers: { 'Content-Type': 'application/json' },
       });
   
       if (response.ok) {
-        document.location.replace('/expense');
+        document.location.replace('/budget');
       } else {
-        alert('Failed to fetch expenses');
+        alert('Failed to create expenses');
       }
     }
   };
