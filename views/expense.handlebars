@@ -1,30 +1,30 @@
 {{!-- the budget page --}}
-<div class=“row mt-4”>
-  <div class=“col-md-6">
-    <h3>Create a New Budget, Buddy</h3>
-    <form class=“form new-budget-form”>
-      <div class=“form-group”>
-        <label for=“Budget-name”>Budget name:</label>
-        <input class=“form-input” type=“text” id=“budget-name” name=“budget-name” />
-      </div>
-      <div class=“form-group”>
-        <label for=“budget-amount”>Budget Amount ($):</label>
-        <input class=“form-input” type=“number” id=“budget-amount” name=“budget-form” />
-      </div>
-    </form>
-  </div>
-  {{#if budgets.length}}
-  <div class=“col-md-6 budget-list”>
-    <h3>Current budgets:</h3>
+<div class="row mt-4">
+    <div class="col-md-6">
+        <h3>Create a New Budget, Buddy</h3>
+        <form class="form new-budget-form">
+            <div class="form-group">
+                <label for="Budget-name">Budget name:</label>
+                <input class="form-input" type="text" id="budget-name" name="budget-name" />
+            </div>
+            <div class="form-group">
+                <label for="budget-amount">Budget Amount ($):</label>
+                <input class="form-input" type="number" id="budget-amount" name="budget-form" />
+            </div>
+        </form>
+    </div>
+    {{#if budgets.length}}
+    <div class="col-md-6 budget-list">
+        <h3>Current budgets:</h3>
+    </div>
     {{#each budgets as |budget|}}
-  </div>
-  <progress class=“progress is-link” value=“80" max=“{{budget.budget_amount}}“></progress>
-  <div class=“content has-text-centered”>
-    Logic - budget amount - you have this much $ left over
-    {{!-- conditional logic for overage rather than a negative amount left --}}
-  </div>
-  {{/each}}
+    <progress class="progress is-link" value="80" max="{{budget.budget_amount}}"></progress>
+    <div class="content has-text-centered">
+        Logic - budget amount - you have this much $ left over
+        {{!-- conditional logic for overage rather than a negative amount left --}}
+    </div>
+    {{/each}}
 </div>
 {{/if}}
 </div>
-<script src=“./js/budget.js”></script>
+<script src="./js/budget.js"></script>
