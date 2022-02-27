@@ -1,5 +1,5 @@
 //make the budget magic happen
-const session = require("express-session");
+// const session = require("express-session");
 
 const budgetFormHandler = async (event) => {
     event.preventDefault();
@@ -9,7 +9,7 @@ const budgetFormHandler = async (event) => {
     
 
     if (name && amount) {
-        const response = await fetch('/api/addbudget', {
+        const response = await fetch('/api/budget/addbudget', {
             method: 'POST',
             body: JSON.stringify({ name, amount}),
             headers: { 'Content-Type': 'application/json' },
