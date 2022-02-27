@@ -1,5 +1,4 @@
 //make the budget magic happen
-const session = require("express-session");
 
 const budgetFormHandler = async (event) => {
     event.preventDefault();

@@ -25,5 +25,5 @@ const expenseFormHandler = async (event) => {
   };
   
   document
-    .querySelector('.expense-form')
+    .querySelector('.new-expense-form')
     .addEventListener('submit', expenseFormHandler);
