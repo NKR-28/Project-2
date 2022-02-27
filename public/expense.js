@@ -7,7 +7,6 @@ const expenseFormHandler = async (event) => {
     
     const dollarAmount = document.querySelector('#expense-amount').value;
 
-
     if (dollarAmount) {
       const response = await fetch('/api/addexpense:budgetid', {
         method: 'POST',
@@ -22,7 +21,29 @@ const expenseFormHandler = async (event) => {
       }
     }
   };
+
+  // const addexpensetobudget = async (event) => {
+  //   event.preventDefault();
+    
+  //   const budgetID = document.querySelector('#expenseadd').value;
+
+  //   if (budgetID) {
+  //     const response = await 
+  //   }
+    
+  //   if (response.ok) {
+  //     document.location.replace('/api/addexpense:budgetid');
+  // } else {
+  //     alert('Failed to add budget');
+  // }
+  // };
   
   document
     .querySelector('.new-expense-form')
     .addEventListener('submit', expenseFormHandler);
+
+  document
+    .querySelector('.addexpense')
+    .addEventListener('submit', addexpensetobudget);
+
+  

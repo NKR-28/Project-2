@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
 router.get('/current', async (req, res) => {
     try {
 
-        const budgetData = await Budget.findAll({
+        const budgetData = await Budget.findall({ where: { user_id: req.session.user_id },
             
             include: [{ model: User }, { model: Expense }],
             attributes: {
@@ -26,15 +26,17 @@ router.get('/current', async (req, res) => {
                 [
                 
                   sequelize.literal(
-                    '(SELECT SUM(dollarAmount) FROM Expense WHERE expense.budget_id = budget.id)'
+                    '(SELECT SUM(dollarAmount) FROM Expense WHERE expense.budget_id = budget.budget_id)'
                   ),
                   'spent',
                 ],
               ],
+              exclude: [
+
+              ]
             },
           });
           res.status(200).json(budgetData);
-          res.render('currentBudgets')
        
     } catch (err) {
         res.status(400).json(err);
@@ -50,7 +52,8 @@ router.post('/addbudget', (req, res) => {
         user_id: req.session.user_id
     })
         .then((newBudget) => {
-            res.json(newBudget)
+            res.json(newBudget);
+            // res.render('currentBudgets');
         })
         .catch((err) => {
             res.json(err);
