@@ -1,0 +1,18 @@
+<!-- Loop over each object in the projects array -->
+
+{{!-- add expenses form here  --}}
+<div>
+  <div class="col-md-6 budget-list">
+    <h3>Current budgets:</h3>
+  </div>
+  {{#each budgets as |budget|}}
+  <progress class="progress is-link" value="{{budget.spent}}" max="{{budget.amount}}"></progress>
+  <div class="content has-text-centered">
+    Logic - budget amount - you have this much $ left over
+    {{!-- conditional logic for overage rather than a negative amount left --}}
+  </div>
+  {{/each}}
+</div>
+</div>
+
+test
