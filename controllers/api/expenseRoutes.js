@@ -44,7 +44,6 @@ router.post('/addexpense/:budgetid', (req, res) => {
 
   Expense.create({
   ...req.body,
-  
   budget_id: req.params.budgetid
 })
     .then((newExpense) => {

@@ -1,8 +1,9 @@
 // READ budget
 
+const sequelize = require('../../config/connection');
 
 const router = require('express').Router();
-const { Budget } = require('../../models');
+const { User, Budget, Expense } = require('../../models');
 
 // our 'skeleton' for the get route needs updating
 router.get('/', async (req, res) => {
@@ -14,11 +15,26 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/budget', async (req, res) => {
+router.get('/current', async (req, res) => {
     try {
 
-        const budgetData = await Budget.findAll({ where: { user_id: req.session.user_id } });
-
+        const budgetData = await Budget.findAll({
+            
+            include: [{ model: User }, { model: Expense }],
+            attributes: {
+              include: [
+                [
+                
+                  sequelize.literal(
+                    '(SELECT SUM(dollarAmount) FROM Expense WHERE expense.budget_id = budget.id)'
+                  ),
+                  'spent',
+                ],
+              ],
+            },
+          });
+          res.status(200).json(budgetData);
+          res.render('currentBudgets')
        
     } catch (err) {
         res.status(400).json(err);

@@ -14,7 +14,7 @@ const budgetFormHandler = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace('/budget');
+            document.location.replace('/');
         } else {
             alert('Failed to add budget');
         }
