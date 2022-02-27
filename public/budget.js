@@ -1,4 +1,3 @@
-//make the budget magic happen
 
 const budgetFormHandler = async (event) => {
     event.preventDefault();
@@ -8,7 +7,7 @@ const budgetFormHandler = async (event) => {
     
 
     if (name && amount) {
-        const response = await fetch('/api/addbudget', {
+        const response = await fetch('/api/budget/addbudget', {
             method: 'POST',
             body: JSON.stringify({ name, amount}),
             headers: { 'Content-Type': 'application/json' },

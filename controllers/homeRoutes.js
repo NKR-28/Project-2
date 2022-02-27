@@ -28,7 +28,6 @@ router.get('/budget', withAuth, async (req, res) => {
     
     res.render('budget', {
       ...user,
-      items,
       logged_in: true
     });
   } catch (err) {
