@@ -43,7 +43,8 @@ router.get('/expense', async (req, res) => {
 router.post('/addexpense/:budgetid', (req, res) => {
 
   Expense.create({
-  ...req.body
+  ...req.body,
+  
   budget_id: req.params.budgetid
 })
     .then((newExpense) => {

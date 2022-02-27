@@ -25,9 +25,7 @@ router.get('/budget', withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
-    //expenses.findAll to update items in the database
     
-    const items = ["apples", "movie", "uber", "food"]
     res.render('budget', {
       ...user,
       items,
