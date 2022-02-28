@@ -1,7 +1,7 @@
 // make a create signup route
 
 const router = require('express').Router();
-const { User, Budget } = require('../models');
+const { User, Budget, Expense } = require('../models');
 const withAuth = require('../utils/auth');
 // const { Budget } = require('../models');
 
@@ -43,28 +43,18 @@ router.get('/currentbudgets', async (req, res) => {
   try{
 
     const budgetData = await Budget.findAll({
-       where: { user_id: req.session.user_id }
+       where: { user_id: req.session.user_id },
       });
     
-    const Budgets = budgetData.map(currentBudget => {
-      const container = {};
-  
-      container[currentBudget.name] = Budget.name;
-      container[currentBudget.amount]= Budget.amount;
-  
-      return container;
-  });
+      const budgets = budgetData.map( budgetRow => budgetRow.get({plain:true}) );
     
-    
-    res.render('currentBudgets', {Budgets});
+    res.render('currentBudgets', {budgets,});
 
   } catch (err) {
-    res.status(500).json.apply(err);
+    res.status(500).json('something went wrong');
   } 
     
   });
-
-  router.get('/')
   
   
 module.exports = router;

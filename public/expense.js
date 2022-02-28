@@ -8,7 +8,7 @@ const expenseFormHandler = async (event) => {
     const dollarAmount = document.querySelector('#expense-amount').value;
 
     if (dollarAmount) {
-      const response = await fetch('/api/addexpense:budgetid', {
+      const response = await fetch('/api/addexpense/:budgetid', {
         method: 'POST',
         body: JSON.stringify({ dollarAmount, budget_id}),
         headers: { 'Content-Type': 'application/json' },
@@ -22,21 +22,15 @@ const expenseFormHandler = async (event) => {
     }
   };
 
-  // const addexpensetobudget = async (event) => {
-  //   event.preventDefault();
+  const addexpensetobudget = async (event) => {
+    event.preventDefault();
     
-  //   const budgetID = document.querySelector('#expenseadd').value;
-
-  //   if (budgetID) {
-  //     const response = await 
-  //   }
+    const budgetID = document.querySelector('#expenseadd').value;
     
-  //   if (response.ok) {
-  //     document.location.replace('/api/addexpense:budgetid');
-  // } else {
-  //     alert('Failed to add budget');
-  // }
-  // };
+  
+      document.location.replace('api/budget/' + budgetID);
+  
+  };
   
   document
     .querySelector('.new-expense-form')

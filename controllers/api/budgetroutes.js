@@ -18,26 +18,27 @@ router.get('/', async (req, res) => {
 router.get('/current', async (req, res) => {
     try {
 
-        const budgetData = await Budget.findall({ where: { user_id: req.session.user_id },
-            
+        const budgetData = await Budget.findall({
+            where: { user_id: req.session.user_id },
+
             include: [{ model: User }, { model: Expense }],
             attributes: {
-              include: [
-                [
-                
-                  sequelize.literal(
-                    '(SELECT SUM(dollarAmount) FROM Expense WHERE expense.budget_id = budget.budget_id)'
-                  ),
-                  'spent',
-                ],
-              ],
-              exclude: [
+                include: [
+                    [
 
-              ]
+                        sequelize.literal(
+                            '(SELECT SUM(dollarAmount) FROM Expense WHERE expense.budget_id = budget.budget_id)'
+                        ),
+                        'spent',
+                    ],
+                ],
+                exclude: [
+
+                ]
             },
-          });
-          res.status(200).json(budgetData);
-       
+        });
+        res.status(200).json(budgetData);
+
     } catch (err) {
         res.status(400).json(err);
     }
@@ -47,8 +48,8 @@ router.get('/current', async (req, res) => {
 router.post('/addbudget', (req, res) => {
 
     Budget.create({
-       ...req.body,
-        
+        ...req.body,
+
         user_id: req.session.user_id
     })
         .then((newBudget) => {
@@ -60,5 +61,23 @@ router.post('/addbudget', (req, res) => {
         });
 });
 
+router.get('/:id', async (req, res) => {
+    try {
+
+        const budgetid = await Budget.findOne({
+            where: { budget_id: req.params.id }
+        })
+        if (budgetid){
+
+            res.render('expense');
+        }
+     } catch (err)
+     {
+        res
+        .status(400)
+        .json({ message: 'Budget does not exist' });
+      return;
+    }
+});
 module.exports = router;
 
