@@ -5,18 +5,21 @@
   <div class="content has-text-centered col-md-6 budget-list">
     <h3>Current budgets:</h3>
   </div>
-  {{#each Budgets as |buddy|}}
-  {{buddy.name}}
-  <progress class="progress is-link" value="{{buddy.spent}}" max="{{buddy.amount}}"></progress>
+  {{#each budgets as |budget|}}
+  <p class="content has-text-centered">
+  Budget name: {{budget.name}}
+  </p>
+  <progress class="progress is-link" value="{{budget.spent}}" max="{{budget.amount}}"></progress>
   <div class="content has-text-centered">
     Logic - budget amount - you have this much $ left over
     {{!-- conditional logic for overage rather than a negative amount left --}}
   </div>
   <div id="expenseadd">
-  <button class="btn btn-primary has-text-centered" value="{{buddy.id}}" type="submit">Add expense</button>
+  <button class="btn btn-primary has-text-centered" value="{{budget.id}}" type="submit">Add expense</button>
   </div>
-
+{{!-- {{> budgets-details}} --}}
   {{/each}}
 </div>
 </div>
 
+<script src="./expense.js"></script>
