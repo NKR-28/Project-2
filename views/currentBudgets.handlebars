@@ -10,11 +10,13 @@
   Budget name: {{budget.name}}
   </p>
   <progress class="progress is-link" value="{{budget.spent}}" max="{{budget.amount}}"></progress>
+
   <div class="content has-text-centered">
     Logic - budget amount - you have this much $ left over
     {{!-- conditional logic for overage rather than a negative amount left --}}
   </div>
-  <div id="expenseadd">
+
+  <div class="has-text-centered" id="expenseadd">
   <button class="btn btn-primary has-text-centered" value="{{budget.id}}" type="submit">Add expense</button>
   </div>
 {{!-- {{> budgets-details}} --}}
