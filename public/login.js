@@ -2,6 +2,7 @@
 console.log("jspage")
 
 const loginFormHandler = async (event) => {
+  try{
   event.preventDefault();
 
   console.log("login")
@@ -18,14 +19,19 @@ const loginFormHandler = async (event) => {
     const results = await response.json()
     console.log(results)
     if (response.ok) {
-      document.location.replace('/');
+      document.location.replace('/budget');
     } else {
       alert('Failed to log in');
     }
   }
+}
+catch(err){
+  console.log(err)
+}
 };
 
 const signupFormHandler = async (event) => {
+  try{
   event.preventDefault();
 console.log("signup")
   const name = document.querySelector('#name-signup').value.trim();
@@ -41,11 +47,15 @@ console.log(name,email,password)
  const results = await response.json()
  console.log(results)
     if (response.ok) {
-      document.location.replace('/');
+      document.location.replace('/budget');
     } else {
       alert(response.statusText);
     }
   }
+}
+catch(err){
+  console.log(err)
+}
 };
 
 document

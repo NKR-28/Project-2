@@ -3,7 +3,7 @@
 
 const expenseFormHandler = async (event) => {
     event.preventDefault();
-  
+  console.log('expense')
     
     const dollarAmount = document.querySelector('#expense-amount').value;
 
@@ -24,20 +24,20 @@ const expenseFormHandler = async (event) => {
 
   const addexpensetobudget = async (event) => {
     event.preventDefault();
-    
-    const budgetID = document.querySelector('#expenseadd').value;
+    console.log('expense')
+    const budgetID = document.querySelector('.addexpense').value;
     
   
       document.location.replace('api/budget/' + budgetID);
   
   };
   
-  document
-    .querySelector('.new-expense-form')
-    .addEventListener('submit', expenseFormHandler);
+  // document
+  //   .querySelector('.new-expense-form')
+  //   .addEventListener('submit', expenseFormHandler);
 
   document
     .querySelector('.addexpense')
-    .addEventListener('submit', addexpensetobudget);
+    .addEventListener('click', addexpensetobudget);
 
   
