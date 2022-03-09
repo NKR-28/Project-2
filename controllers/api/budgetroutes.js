@@ -65,7 +65,7 @@ router.get('/:id', async (req, res) => {
     try {
 
         const budgetid = await Budget.findOne({
-            where: { budget_id: req.params.id }
+            where: { id: req.params.id }
         })
         if (budgetid){
 

@@ -55,10 +55,10 @@ router.get('/currentbudgets', async (req, res) => {
   } 
     
   });
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
 
-    res.render('homepage', {
+    res.render('budget', {
       logged_in: req.session.logged_in
     });
 
